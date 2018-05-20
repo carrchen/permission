@@ -9,11 +9,15 @@
 
     <!-- 启动注解驱动的spring mvc 功能 -->
     <mvc:annotation-driven/>
+    <mvc:interceptors>
+        <bean class="com.itclub4u.common.HttpInterceptor" />
+    </mvc:interceptors>
 
     <!--启动包扫描功能-->
     <context:component-scan base-package="com.itclub4u.service"/>
     <context:component-scan base-package="com.itclub4u.controller"/>
 
+    <bean class="com.itclub4u.common.ApplicationContextHelper" lazy-init="false"/>
     <!--<bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter"/>-->
 
     <bean class="com.itclub4u.common.SpringExceptionResolver"/>
